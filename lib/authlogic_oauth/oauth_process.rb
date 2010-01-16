@@ -47,7 +47,7 @@ module AuthlogicOauth
     end
 
     def oauth_response
-      oauth_controller.params && oauth_controller.params[:oauth_token]
+      oauth_controller && oauth_controller.params && oauth_controller.params[:oauth_token]
     end
 
     def oauth_controller
