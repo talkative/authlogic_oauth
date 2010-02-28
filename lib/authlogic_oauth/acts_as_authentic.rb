@@ -1,3 +1,5 @@
+require 'authlogic'
+
 module AuthlogicOauth
   module ActsAsAuthentic
     def self.included(klass)
