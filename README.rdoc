@@ -81,7 +81,7 @@ The oauth_consumer should return an OAuth::Consumer which is configured for your
     def self.oauth_consumer
       OAuth::Consumer.new("TOKEN", "SECRET",
       { :site=>"http://twitter.com",
-        :authorize_url => "http://twitter.com/oauth/authenticate" })
+        :authorize_url => "http://twitter.com/oauth/authorize?force_login=true" })
     end
 
   end
