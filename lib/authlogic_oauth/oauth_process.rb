@@ -1,6 +1,10 @@
 module AuthlogicOauth
   module OauthProcess
 
+  def generate_access_token
+    @access_token ||= request_token.get_access_token(:oauth_verifier => oauth_controller.params[:oauth_verifier])
+  end
+
   private
 
     def validate_by_oauth
@@ -40,10 +44,6 @@ module AuthlogicOauth
       OAuth::RequestToken.new(oauth,
       oauth_controller.session[:oauth_request_token],
       oauth_controller.session[:oauth_request_token_secret])
-    end
-
-    def generate_access_token
-      request_token.get_access_token(:oauth_verifier => oauth_controller.params[:oauth_verifier])
     end
 
     def oauth_response
